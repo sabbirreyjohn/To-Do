@@ -8,18 +8,18 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.test.todo.model.TodoItem
+import com.test.todo.model.Todo
 
 @Dao
 interface TodoDao {
-    @Query("select * from TodoItem")
-    suspend fun getTodo(): List<TodoItem>
+    @Query("select * from Todo")
+    suspend fun getTodo(): List<Todo>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(todos: List<TodoItem>)
+    suspend fun insertAll(todos: List<Todo>)
 }
 
-@Database(entities = [TodoItem::class], version = 1)
+@Database(entities = [Todo::class], version = 1)
 
 abstract class TheDatabase : RoomDatabase() {
     abstract val todoDao: TodoDao

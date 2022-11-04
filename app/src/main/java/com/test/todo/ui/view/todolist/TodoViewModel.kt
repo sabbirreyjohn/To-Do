@@ -2,7 +2,7 @@ package com.test.todo.ui.view.todolist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.test.todo.model.TodoItem
+import com.test.todo.model.Todo
 import com.test.todo.repository.DataRepository
 import com.test.todo.utils.Status
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TodoViewModel @Inject constructor(private val repo: DataRepository) : ViewModel() {
-    private val _todos = MutableStateFlow<List<TodoItem>>(mutableListOf())
+    private val _todos = MutableStateFlow<List<Todo>>(mutableListOf())
     val todos get() = _todos
 
     private val _isLoading = MutableStateFlow(false)
