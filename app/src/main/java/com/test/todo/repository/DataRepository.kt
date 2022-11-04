@@ -11,7 +11,7 @@ class DataRepository @Inject internal constructor(
     private val todoApiHelper: TodoApiHelper
 ) {
 
-    suspend fun getTodosFromServer(): Status<List<Todo>> {
+    suspend fun getTodosFromServer(): Status<MutableList<Todo>> {
         val response = try {
             todoApiHelper.getTodos()
         } catch (e: Exception) {
@@ -20,7 +20,7 @@ class DataRepository @Inject internal constructor(
         return Status.Success(response)
     }
 
-    suspend fun getTodosFromDB(): Status<List<Todo>> {
+    suspend fun getTodosFromDB(): Status<MutableList<Todo>> {
         val response = try {
             database.todoDao.getTodo()
         } catch (e: Exception) {
@@ -31,6 +31,6 @@ class DataRepository @Inject internal constructor(
         return Status.Success(response)
     }
 
-    suspend fun insertTodosToDB(todos: List<Todo>) = database.todoDao.insertAll(todos)
+    suspend fun insertTodosToDB(todos: MutableList<Todo>) = database.todoDao.insertAll(todos)
 
 }

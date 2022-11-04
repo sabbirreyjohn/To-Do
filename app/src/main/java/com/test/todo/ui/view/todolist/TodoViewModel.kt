@@ -12,22 +12,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TodoViewModel @Inject constructor(private val repo: DataRepository) : ViewModel() {
-    private val _todos = MutableStateFlow<List<Todo>>(mutableListOf())
+    private val _todos = MutableStateFlow<Status<MutableList<Todo>>>(Status.Loading())
     val todos get() = _todos
-
-    private val _isLoading = MutableStateFlow(false)
-    val isLoading get() = _isLoading
-
-    private val _hasError = MutableStateFlow(false)
-    val hasError get() = _hasError
 
     init {
         loadTodoItems()
     }
 
-    private fun loadTodoItems() {
+     fun loadTodoItems() {
         viewModelScope.launch {
-            _isLoading.value = true
             when (val status = repo.getTodosFromServer()) {
                 is Status.Success -> {
                     status.data?.let {
@@ -38,27 +31,12 @@ class TodoViewModel @Inject constructor(private val repo: DataRepository) : View
                 is Status.Error -> {
                     loadTodosFromDb()
                 }
-                else -> {
-
-                }
             }
         }
     }
 
     suspend fun loadTodosFromDb() {
-        _isLoading.value = false
-        when (val dbStatus = repo.getTodosFromDB()) {
-            is Status.Success -> {
-                dbStatus.data?.let {
-                    _hasError.value = false
-                    _todos.value = it
-                }
-            }
-            is Status.Error -> {
-                _hasError.value = true
-                _todos.value = mutableListOf()
-            }
-        }
+        val dbStatus = repo.getTodosFromDB()
+        _todos.value = dbStatus
     }
-
 }

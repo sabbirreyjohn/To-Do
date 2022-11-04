@@ -6,17 +6,17 @@ import javax.inject.Inject
 
 interface TodoApiInterface {
     @GET("todos")
-    suspend fun getTodos(): List<Todo>
+    suspend fun getTodos(): MutableList<Todo>
 }
 
 
 class TodoApiHelperImpl @Inject internal constructor(private val todoApiInterface: TodoApiInterface) :
     TodoApiHelper {
-    override suspend fun getTodos(): List<Todo> {
+    override suspend fun getTodos(): MutableList<Todo> {
         return todoApiInterface.getTodos()
     }
 }
 
 interface TodoApiHelper {
-    suspend fun getTodos(): List<Todo>
+    suspend fun getTodos(): MutableList<Todo>
 }

@@ -13,10 +13,13 @@ import com.test.todo.model.Todo
 @Dao
 interface TodoDao {
     @Query("select * from Todo")
-    suspend fun getTodo(): List<Todo>
+    suspend fun getTodo(): MutableList<Todo>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(todos: List<Todo>)
+    suspend fun insertAll(todos: MutableList<Todo>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTodo(todo: Todo)
 }
 
 @Database(entities = [Todo::class], version = 1)
