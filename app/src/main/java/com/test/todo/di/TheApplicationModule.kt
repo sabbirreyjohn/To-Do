@@ -37,20 +37,19 @@ class TheApplicationModule {
 
     @Provides
     @Singleton
-    fun provideRoomDatabase(@ApplicationContext context: Context): TheDatabase =
-        getDatabase(context)
-
-    @Provides
-    @Singleton
-    fun provideUserApi(retrofit: Retrofit): TodoApiInterface =
+    fun provideTodoApi(retrofit: Retrofit): TodoApiInterface =
         retrofit.create(TodoApiInterface::class.java)
 
     @Provides
     @Singleton
-    fun provideUserApiHelper(todoApiHelperImpl: TodoApiHelperImpl): TodoApiHelper =
+    fun provideTodoApiHelper(todoApiHelperImpl: TodoApiHelperImpl): TodoApiHelper =
         todoApiHelperImpl
 
+    @Provides
+    @Singleton
+    fun provideRoomDatabase(@ApplicationContext context: Context): TheDatabase =
+        getDatabase(context)
 
     @Provides
-    fun provideUserDao(database: TheDatabase) = database.todoDao
+    fun provideTodoDao(database: TheDatabase) = database.todoDao
 }

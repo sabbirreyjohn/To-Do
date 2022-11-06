@@ -1,6 +1,8 @@
 package com.test.todo.ui.view.main
 
+import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
@@ -15,10 +17,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.test.todo.TheApplication
 import com.test.todo.ui.theme.ToDoTheme
 import com.test.todo.ui.view.todolist.TodoListScreen
 import com.test.todo.ui.view.todolist.TodoViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
