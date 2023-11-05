@@ -1,15 +1,15 @@
-package com.test.todo.di
+package com.test.todo.domain.di
 
 import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.test.todo.TheApplication
-import com.test.todo.datasource.TheDatabase
-import com.test.todo.datasource.TodoApiHelper
-import com.test.todo.datasource.TodoApiHelperImpl
-import com.test.todo.datasource.TodoApiInterface
-import com.test.todo.datasource.getDatabase
-import com.test.todo.utils.BASE_URL
+import com.test.todo.data.TheDatabase
+import com.test.todo.data.TodoApiHelper
+import com.test.todo.data.TodoApiHelperImpl
+import com.test.todo.data.TodoApiInterface
+import com.test.todo.data.getDatabase
+import com.test.todo.domain.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

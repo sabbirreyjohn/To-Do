@@ -4,9 +4,9 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
 import com.test.todo.MainCoroutineRule
-import com.test.todo.model.Todo
-import com.test.todo.repository.DataRepository
-import com.test.todo.utils.Status
+import com.test.todo.domain.entities.Todo
+import com.test.todo.domain.repository.DataRepository
+import com.test.todo.domain.utils.Status
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -1,9 +1,9 @@
-package com.test.todo.repository
+package com.test.todo.domain.repository
 
-import com.test.todo.datasource.TheDatabase
-import com.test.todo.datasource.TodoApiHelper
-import com.test.todo.model.Todo
-import com.test.todo.utils.Status
+import com.test.todo.data.TheDatabase
+import com.test.todo.data.TodoApiHelper
+import com.test.todo.domain.entities.Todo
+import com.test.todo.domain.utils.Status
 import javax.inject.Inject
 
 class DataRepository @Inject internal constructor(

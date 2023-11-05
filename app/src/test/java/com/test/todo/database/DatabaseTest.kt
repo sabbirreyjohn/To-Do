@@ -5,8 +5,8 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
-import com.test.todo.datasource.TheDatabase
-import com.test.todo.model.Todo
+import com.test.todo.data.TheDatabase
+import com.test.todo.domain.entities.Todo
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before

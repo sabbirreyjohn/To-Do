@@ -1,4 +1,4 @@
-package com.test.todo.datasource
+package com.test.todo.data
 
 import android.content.Context
 import androidx.room.Dao
@@ -8,7 +8,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.test.todo.model.Todo
+import com.test.todo.domain.entities.Todo
 
 @Dao
 interface TodoDao {

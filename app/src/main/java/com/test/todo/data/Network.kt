@@ -1,6 +1,6 @@
-package com.test.todo.datasource
+package com.test.todo.data
 
-import com.test.todo.model.Todo
+import com.test.todo.domain.entities.Todo
 import retrofit2.http.GET
 import javax.inject.Inject
 

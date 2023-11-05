@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.test.todo.R
-import com.test.todo.model.Todo
+import com.test.todo.domain.entities.Todo
 import com.test.todo.ui.composables.StateHandler
 import com.test.todo.ui.theme.ToDoTheme
 

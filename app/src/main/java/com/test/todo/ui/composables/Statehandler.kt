@@ -1,7 +1,7 @@
 package com.test.todo.ui.composables
 
 import androidx.compose.runtime.Composable
-import com.test.todo.utils.Status
+import com.test.todo.domain.utils.Status
 
 @Composable
 fun <T> StateHandler(

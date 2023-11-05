@@ -2,9 +2,9 @@ package com.test.todo.ui.view.todolist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.test.todo.model.Todo
-import com.test.todo.repository.DataRepository
-import com.test.todo.utils.Status
+import com.test.todo.domain.entities.Todo
+import com.test.todo.domain.repository.DataRepository
+import com.test.todo.domain.utils.Status
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
